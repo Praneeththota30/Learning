@@ -1,0 +1,34 @@
+#---
+#- hosts: 192.168.1.56
+#  connection: windows
+ # tasks:
+ # -
+  #  name: copy a file
+   # ansible.windows.win_copy:
+    #  src: /home/praneeth/Downloads/jre-8u261-linux-x64.tar.gz
+     # dest: C:\Learning
+
+--- 
+- 
+  connection: windows
+  hosts: "192.168.1.56"
+  tasks: 
+    - 
+      ansible.windows.win_copy: 
+        dest: "C:\\Learning"
+        src: /home/praneeth/Downloads/jre-8u261-linux-x64.tar.gz
+      name: "copy a file"
+    -
+      ansible.windows.win_copy:
+        dest: "C:\\Learning"
+        src: /home/praneeth/Downloads/jre1.8.0_261
+      name: "copy a file"
+
+
+    -
+      ansible.windows.win_copy:
+        dest: "C:\\Learning"
+        src: /home/praneeth/Downloads/jdk-8u261-windows-x64.exe
+      name: "copy a file"
+    
+    

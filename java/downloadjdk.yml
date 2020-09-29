@@ -1,0 +1,32 @@
+---
+ - 
+  hosts: 127.0.0.1
+ 
+  tasks:
+  - name: Download Java JRE
+    get_url:
+      url: https://download.oracle.com/otn/java/jdk/8u261-b12/a4634525489241b9a9e1aa73d9e118e6/jre-8u261-linux-x64.tar.gz?xd_co_f=9f5acfd9-ce64-4cef-85d5-d3f23500d9fc 
+      dest: /home/praneeth/Downloads/jre-8u261-linux-x64.tar.gz
+      headers: 'Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
+ 
+  - name: Download Java JRE for Windows
+    get_url:
+      url: https://download.oracle.com/otn/java/jdk/8u261-b12/jre-8u261-windows-x64.tar.gz
+      dest: /home/praneeth/Downloads/jre-8u261-windows-x64.tar.gz
+      headers: 'Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
+  
+  - name: unarchive
+    shell: tar xvzf /home/praneeth/Downloads/jre-8u261-linux-x64.tar.gz -C /home/praneeth/Downloads
+ 
+  - name: copy a file
+    ansible.windows.win_copy:
+      src: /home/praneeth/Downloads/jre-8u261-linux-x64.tar.gz
+      dest: C:\Learning
+ 
+  - name: Download Java JDK
+    get_url:
+      url: https://download.oracle.com/otn/java/jdk/8u261-b12/jdk-8u261-linux-x64.rpm
+      dest: /home/praneeth/Downloads/jdk-8u261-linux-x64.rpm
+      headers: 'Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
+  
+  
